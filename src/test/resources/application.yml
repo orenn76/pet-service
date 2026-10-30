@@ -1,0 +1,36 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+#H2 Database properties
+spring:
+  datasource:
+    url: jdbc:h2:file:./data/pets_db
+    driverClassName: org.h2.Driver
+    username: sa
+    password:
+  h2:
+    console:
+      enabled: true
+
+  jpa:
+    show-sql: false
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        transaction:
+          jta:
+            platform: org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform
+
+  #Disable batch job's auto start
+  batch:
+    job:
+      enabled: false
+
+  #To always initialize the datasource
+    jdbc:
+      initialize-schema: always
+

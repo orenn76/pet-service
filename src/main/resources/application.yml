@@ -1,0 +1,26 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+spring:
+  datasource:
+    url: jdbc:h2:file:./data/pets_db
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+
+  # Disable batch jobs auto-start
+  batch:
+    job:
+      enabled: false
